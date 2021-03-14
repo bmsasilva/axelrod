@@ -6,13 +6,17 @@ rm(list = ls(all = TRUE))
 
 # Load functions:
 
-root <- "https://raw.githubusercontent.com/gnicoulaud/axelrod/master/"
-source(file.path(root, "utilities.R"))
-source(file.path(root, "algos.R"))
+root <- "C:\\Users\\silva\\Projects\\R_packages\\axelrod_prisionerdilema"
+source(file.path(root, "./bin/utilities.R"))
+source(file.path(root, "./bin/algos.R"))
 
 # Run a single 10-rounds match between tft and rand:
 
 (ans <- .match(tft, rand, 10))
+
+# Run a single 10-rounds match between tft and tftd:
+
+(ans <- .match(tftd, rand, 100))
 
 # That's a list; if you just want the strategies:
 
@@ -22,12 +26,11 @@ ans$S
 
 colSums(ans$P)
 
-# A small tournament with alld, allc, rand, tft, alt, grudger, detect, gtft,
-# wsls and tf2t (200-rounds matches):
+# A small tournament (200-rounds matches):
 
 x <- list(alld = alld, allc = allc, rand = rand, tft = tft, alt = alt,
 	grudger = grudger, detect = detect, gtft = gtft, wsls = wsls,
-	tf2t = tf2t)
+	tf2t = tf2t, tftd = tftd)
 
 (ans <- .tournament(x, 200))
 

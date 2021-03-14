@@ -76,7 +76,7 @@ detect = function(p, o, n = 2000) {
 
 
 # -------------------------------------------------------------------------- #
-# Tit-For-Tat
+# Tit-For-Tat-C
 # -------------------------------------------------------------------------- #
 
 # Begins by cooperating and then simply repeats the last moves made by the
@@ -84,6 +84,17 @@ detect = function(p, o, n = 2000) {
 
 tft = function(p, o, n = 2000) {
 	ifelse(length(p) == 0, TRUE, tail(o, 1))
+}
+
+# -------------------------------------------------------------------------- #
+# Tit-For-Tat-D
+# -------------------------------------------------------------------------- #
+
+# Begins by defecting and then simply repeats the last moves made by the
+# opponent.
+
+tftd = function(p, o, n = 2000) {
+  ifelse(length(p) == 0, FALSE, tail(o, 1))
 }
 
 
